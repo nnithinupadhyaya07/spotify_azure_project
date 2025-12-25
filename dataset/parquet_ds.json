@@ -1,0 +1,21 @@
+{
+	"name": "parquet_ds",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedServiceDL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "project",
+				"fileSystem": "destination"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

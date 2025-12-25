@@ -1,0 +1,69 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_csv_dynm",
+						"type": "DatasetReference"
+					},
+					"name": "source"
+				}
+			],
+			"sinks": [
+				{
+					"linkedService": {
+						"referenceName": "linkedServiceDL",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Upper"
+				},
+				{
+					"name": "alterRow"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          location_id as short,",
+				"          city as string,",
+				"          state as string,",
+				"          country as string,",
+				"          latitude as double,",
+				"          longitude as double,",
+				"          last_updated_timestamp as timestamp",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source",
+				"source derive(state = upper(state)) ~> Upper",
+				"Upper alterRow(upsertIf(1==1)) ~> alterRow",
+				"alterRow sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     format: 'delta',",
+				"     fileSystem: 'sink',",
+				"     folderPath: 'deltasink',",
+				"     mergeSchema: false,",
+				"     autoCompact: false,",
+				"     optimizedWrite: false,",
+				"     vacuum: 0,",
+				"     deletable: false,",
+				"     insertable: false,",
+				"     updateable: false,",
+				"     upsertable: true,",
+				"     keys:['location_id'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink"
+			]
+		}
+	}
+}

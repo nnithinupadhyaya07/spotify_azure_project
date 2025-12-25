@@ -1,0 +1,9 @@
+{
+	"name": "nithinadf-dev",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "bcf7fdc2-8375-4f26-b8b8-c381e724ea6e",
+		"tenantId": "2ed3983f-1343-4829-bec0-0f9b35a90de4"
+	}
+}
