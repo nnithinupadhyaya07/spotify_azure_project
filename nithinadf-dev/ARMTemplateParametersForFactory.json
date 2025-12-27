@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "nithinadf-dev"
+		},
+		"AzureSqlDatabase_LS_password": {
+			"value": ""
+		},
+		"azure_project_db_ls_password": {
+			"value": ""
+		},
+		"linkedServiceDL_accountKey": {
+			"value": ""
+		},
+		"project_gen2_ls_accountKey": {
+			"value": ""
+		},
+		"AzureSqlDatabase_LS_properties_typeProperties_server": {
+			"value": "devsqlserver07.database.windows.net"
+		},
+		"AzureSqlDatabase_LS_properties_typeProperties_database": {
+			"value": "devsqldb"
+		},
+		"AzureSqlDatabase_LS_properties_typeProperties_userName": {
+			"value": "adminsql"
+		},
+		"Http_Connection_properties_typeProperties_url": {
+			"value": "https://raw.githubusercontent.com"
+		},
+		"azure_project_db_ls_properties_typeProperties_server": {
+			"value": "devsqlserver07.database.windows.net"
+		},
+		"azure_project_db_ls_properties_typeProperties_database": {
+			"value": "devsqldb"
+		},
+		"azure_project_db_ls_properties_typeProperties_userName": {
+			"value": "adminsql"
+		},
+		"linkedServiceDL_properties_typeProperties_url": {
+			"value": "https://nithindev.dfs.core.windows.net/"
+		},
+		"project_gen2_ls_properties_typeProperties_url": {
+			"value": "https://nithindev.dfs.core.windows.net/"
+		},
+		"rest_ls_properties_typeProperties_url": {
+			"value": "https://pokeapi.co/api/v2/pokemon"
+		}
+	}
+}
